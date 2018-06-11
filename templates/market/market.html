@@ -1,0 +1,58 @@
+{%   extends 'base/base_main.html' %}
+
+{% block extCSS %}
+{{ super() }}
+
+<link rel="stylesheet" href="../../static/app/market/css/market.css">
+{% endblock %}
+
+{% block content %}
+<div id="market">
+    <aside>
+        <ul>
+            {% for data in data[1] %}
+            <li>
+                <a href="#">{{ data.typename }}</a>
+            </li>
+            {% endfor %}
+
+        </ul>
+    </aside>
+    <section>
+        <nav>
+            <ul>
+                <li id="all_types">
+                    <span>全部分类<span class="glyphicon glyphicon-chevron-down"></span></span>
+                </li>
+                <li id="sort_rule">
+                    <span>综合排序 <span class="glyphicon glyphicon-chevron-down"></span></span>
+                </li>
+            </ul>
+        </nav>
+        <menu>
+            <ul>
+                {% for data in data[2] %}
+                <li>
+                    <a href="#">
+                        <img src="{{ data.productimg}}" alt="{{ data.productname}}">
+                        <div class="shoppingInfo">
+                            <h6>{{ data.productlongname }}</h6>
+                            <p class="detailTag">
+                                <span>精选</span>
+                                <span></span>
+                            </p>
+                            <p class="unit">{{ data.specifics }}</p>
+                            <p class="price">
+                                <span>￥{{ data.price }}</span>
+                                <s>{{ data.marketprice }}</s>
+                            </p>
+                        </div>
+                    </a>
+                </li>
+                {% endfor %}
+
+            </ul>
+        </menu>
+    </section>
+</div>
+{% endblock %}

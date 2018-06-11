@@ -1,0 +1,143 @@
+{% extends 'base/base_main.html' %}
+
+{% block extCSS %}
+    {{ super() }}
+
+    <link rel="stylesheet" href="../../static/app/home/css/home.css">
+{% endblock %}
+{% block extJS %}
+    {{ super() }}
+    <script type="text/javascript" src="../../static/app/home/js/home.js"></script>
+{% endblock %}
+{% block content %}
+    <div id="home">
+
+        <div id="topSwiper" class="'swiper-container">
+            <div class="swiper-wrapper">
+                {% for data in data[1] %}
+                    <div class="swiper-slide">
+                        <a href="#">
+                            <img src="{{ data.img }}" alt="{{ data.name }}">
+
+                        </a>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="topMenu">
+            <nav>
+                <ul>
+
+                    {% for data in data[2] %}
+                        <li>
+                            <a href="#">
+                                <img src="{{ data.img }}" alt="{{ data.name }}">
+                                <span>{{ data.name }}</span>
+                            </a>
+                        </li>
+                    {% endfor %}
+
+                </ul>
+            </nav>
+        </div>
+        <div id="swiperMenu" class="swiper-container">
+            <ul class="swiper-wrapper">
+                {% for data in data[3] %}
+                    <li class="swiper-slide">
+                        <img src="{{ data.img }}" alt="{{ data.name }}">
+                    </li>
+                {% endfor %}
+
+            </ul>
+        </div>
+        <div class="cvs">
+            <h2>
+                <img src="{{ data[4][0].img }}" alt="{{ data[4][0].name }}">
+            </h2>
+            <fieldset>
+                {% for data in data[4][1:3] %}
+                    <a href="#">
+                        <img src="{{ data.img }}" alt="{{ data.name }}">
+                    </a>
+                {% endfor %}
+
+            </fieldset>
+            <ul>
+                {% for data in data[4][3:7] %}
+                    <li>
+                        <img src="{{ data.img }}" alt="{{ data.name }}">
+                        <span>{{ data.name }}</span>
+
+                    </li>
+                {% endfor %}
+
+            </ul>
+            <ol>
+                {% for data in data[4][7:11] %}
+                    <li>
+                        <a href="#">
+                            <img src="{{ data.img }}" alt="{{ data.name }}">
+                        </a>
+                    </li>
+                {% endfor %}
+
+            </ol>
+
+        </div>
+        <div class="mainInfo">
+            {% for data in data[5] %}
+                <section>
+                    <h3>
+                        {{ data.name }}
+                        <a href="#">更多</a>
+                        <span></span>
+                    </h3>
+                    <div>
+                        <a href="#">
+                            <img src="{{ data.img }}" alt="">
+                        </a>
+                    </div>
+                    <ul>
+                       <li>
+                           <a href="#">
+                               <img src="{{ data.img1 }}" alt="{{ data.longname1 }}">
+                               <p class="description"> {{ data.longname1 }}</p>
+                               <span>￥{{ data.price1 }}</span>
+                               <s>{{ data.marketprice1 }}</s>
+                           </a>
+                           <button>
+                               <span>+</span>
+                           </button>
+                       </li>
+                        <li>
+                           <a href="#">
+                               <img src="{{ data.img2 }}" alt="{{ data.longname2 }}">
+                               <p class="description"> {{ data.longname2 }}</p>
+                               <span>￥{{ data.price2 }}</span>
+                               <s>{{ data.marketprice2 }}</s>
+                           </a>
+                           <button>
+                               <span>+</span>
+                           </button>
+                       </li>
+                        <li>
+                           <a href="#">
+                               <img src="{{ data.img3 }}" alt="{{ data.longname3 }}">
+                               <p class="description"> {{ data.longname3 }}</p>
+                               <span>￥{{ data.price3 }}</span>
+                               <s>{{ data.marketprice3 }}</s>
+                           </a>
+                           <button>
+                               <span>+</span>
+                           </button>
+                       </li>
+                    </ul>
+                </section>
+            {% endfor %}
+
+
+        </div>
+    </div>
+
+{% endblock %}
